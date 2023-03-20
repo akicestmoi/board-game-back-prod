@@ -1,0 +1,22 @@
+<html>
+<body>
+    <h1> Django WebSocket Control Panel (open browser console) </h1>
+    
+    {{ game_id|json_script:"game_id" }}
+    <script>
+
+        const gameId = JSON.parse(document.getElementById('game_id').textContent);
+        const url = `ws://${window.location.host}/ws/tictactoe/${gameId}`
+
+        console.log(url)
+        url
+        const wsocket = new WebSocket(url)
+
+        wsocket.onmessage = function(e){
+            let data=JSON.parse(e.data)
+            console.log('Data:', data)
+        }
+
+    </script>
+</body>
+</html>
