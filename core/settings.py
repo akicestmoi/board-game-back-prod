@@ -92,9 +92,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': "railway",
         'USER': "postgres",
-        'PASSWORD': "ZxMoQk4e9OnjlkqgmdJk",
-        'HOST': "containers-us-west-174.railway.app",
-        'PORT': "7511",
+        'PASSWORD': "K6vj64VjxwWFXEMygGSz",
+        'HOST': "containers-us-west-55.railway.app",
+        'PORT': "7009",
     }
 }
 
@@ -154,7 +154,7 @@ CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels_redis.core.RedisChannelLayer",
         "CONFIG": {
-            "hosts": ["redis://default:Xtvnc3hKB0lGRUpfLBgT@containers-us-west-25.railway.app:6571"]
+            "hosts": ["redis://default:k2S3cAEdBoT5fAoAz52q@containers-us-west-174.railway.app:5889"]
         }
     }
 }
