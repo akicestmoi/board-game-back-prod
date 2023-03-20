@@ -152,7 +152,10 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # Channels
 CHANNEL_LAYERS = {
     "default": {
-        "BACKEND": "channels.layers.InMemoryChannelLayer"
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": ["redis://default:Xtvnc3hKB0lGRUpfLBgT@containers-us-west-25.railway.app:6571"]
+        }
     }
 }
 

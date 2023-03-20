@@ -43,7 +43,6 @@ class LobbyView(APIView):
             player: User = User.objects.get(username=username)
             does_game_exist: bool = (Game.objects.filter(id=id, creator=player.pk) | Game.objects.filter(id=id, opponent=player.pk)).exists()
             if (does_game_exist):
-                print("ça existe donc on ne fait que join")
                 return Response({"status": "Success"}, status=status.HTTP_201_CREATED)
             else:
                 print("ici")
