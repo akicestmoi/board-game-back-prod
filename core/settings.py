@@ -10,19 +10,13 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
-import os
 import environ
 import dj_database_url
-from pathlib import Path
 
 
 # Configure environment variables
 env = environ.Env()
 environ.Env.read_env()
-
-
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # Quick-start development settings - unsuitable for production
@@ -155,7 +149,7 @@ CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels_redis.core.RedisChannelLayer",
         "CONFIG": {
-            "hosts": ["redis://default:k2S3cAEdBoT5fAoAz52q@containers-us-west-174.railway.app:5889"]
+            "hosts": [(env("REDIS_URL"))]
         }
     }
 }
