@@ -11,7 +11,14 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 import os
+import environ
+import dj_database_url
 from pathlib import Path
+
+
+# Configure environment variables
+env = environ.Env()
+environ.Env.read_env()
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -88,14 +95,7 @@ WSGI_APPLICATION = "core.wsgi.application"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': "railway",
-        'USER': "postgres",
-        'PASSWORD': "K6vj64VjxwWFXEMygGSz",
-        'HOST': "containers-us-west-55.railway.app",
-        'PORT': "7009",
-    }
+    'default': dj_database_url.parse(env("DATABASE_URL"))
 }
 
 
@@ -158,6 +158,3 @@ CHANNEL_LAYERS = {
         }
     }
 }
-
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
