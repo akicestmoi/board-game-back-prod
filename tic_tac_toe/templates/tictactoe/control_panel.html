@@ -8,8 +8,6 @@
         const gameId = JSON.parse(document.getElementById('game_id').textContent);
         const url = `ws://${window.location.host}/ws/tictactoe/${gameId}`
 
-        console.log(url)
-        url
         const wsocket = new WebSocket(url)
 
         wsocket.onmessage = function(e){
